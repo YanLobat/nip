@@ -9,9 +9,10 @@ import { GithubService } from './github.service';
   templateUrl: 'search.component.html',
 })
 export class SearchComponent {
-
+  private name: String,
+  private owner: String
   constructor(
-    private router: Router
+    private router: Router,
   ) {}
 
   goToResult(): void {

@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { Router }            from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { GithubService } from './github.service';
 
@@ -8,13 +8,33 @@ import { GithubService } from './github.service';
   selector: 'result',
   templateUrl: 'result.component.html',
 })
-export class ResultComponent {
+export class ResultComponent implements OnInit  {
+  private result: object = {
+  	repo: {},
+  	contributors: {}
+  };
 
   constructor(
-    private router: Router
-  ) {}
+  	private githubService: GithubService,
+    private activatedRoute: ActivatedRoute
+  ) {
+  	this.githubService = githubService;
+  	this.activatedRoute = activatedRoute;
+  }
+  
+  keys() : Array<string> {
+    return Object.keys(this.result.contributors);
+  }
 
-
+  ngOnInit(): void {
+  	let params = this.activatedRoute.queryParams.value;
+    this.githubService
+    	.get(params.name, params.owner)
+    	.then(result => {
+    		this.result = result;
+    		console.log(this.result.contributors);
+    	})
+  }
 
 }
 

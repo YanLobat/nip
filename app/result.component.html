@@ -1,3 +1,6 @@
 <div id="result-component">
-	<h4>Result</h4>
+	<h4>{{ result.repo.name}} </h4>
+	<ul>
+		<li *ngFor="let obj of keys()">{{result.contributors[obj]['login']}} ({{result.contributors[obj]['contributions']}})</li>
+	</ul>
 </div>
