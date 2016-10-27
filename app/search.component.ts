@@ -6,16 +6,16 @@ import { GithubService } from './github.service';
 @Component({
   moduleId: module.id,
   selector: 'search',
-  templateUrl: 'search.component.html',
+  templateUrl: './search.component.html',
 })
 export class SearchComponent {
-  private name: String,
-  private owner: String
+  private name: String;
+  private owner: String;
   constructor(
-    private router: Router,
+    private router: Router
   ) {}
 
-  goToResult(): void {
+  private goToResult(): void {
   	let navigationExtras: NavigationExtras = {
       queryParams: { 'name': this.name, 'owner': this.owner}
     };

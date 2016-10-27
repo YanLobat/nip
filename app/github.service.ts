@@ -25,21 +25,18 @@ export class GithubService {
     return this.http
     		.get(this.getUrl, {headers: headers})
     		.toPromise()
-    		.then(res => {
-    			let response: object = res._body;
-				return JSON.parse(response);
-			})
+    		.then(res => res.json()._body)
 			.then(response => {
 				return this.http
 					.get(this.getUrl + '/contributors', { headers: headers })
 					.toPromise()
 					.then(result => {
-						let contributors: object = JSON.parse(result._body);
-						let array: array = [];
+						let contributors: Array<Object> = result.json()._body;
+						let array: Array<Object> = [];
 					    for (let element of contributors) {
 					      	array.push(element);
 					    }
-					    let finalObject: object = {
+					    let finalObject: Object = {
 							repo: response,
 							contributors: array
 						};

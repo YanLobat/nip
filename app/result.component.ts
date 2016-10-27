@@ -9,9 +9,9 @@ import { GithubService } from './github.service';
   templateUrl: 'result.component.html',
 })
 export class ResultComponent implements OnInit  {
-  private result: object = {
+  private result: any = {
   	repo: {},
-  	contributors: {}
+  	contributors: []
   };
 
   constructor(
@@ -27,7 +27,7 @@ export class ResultComponent implements OnInit  {
   }
 
   ngOnInit(): void {
-  	let params = this.activatedRoute.queryParams.value;
+  	let params: any = this.activatedRoute.queryParams['value'];
     this.githubService
     	.get(params.name, params.owner)
     	.then(result => {
