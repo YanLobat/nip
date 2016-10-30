@@ -1,0 +1,7 @@
+<div id="result-component">
+	<filter (filterContributors)="filterContributors($event)"></filter>
+	<h4>{{ result.repo.name}} </h4>
+	<ol>
+		<li *ngFor="let obj of keys()"><img width="50" height="50" src="{{result.contributors[obj]['avatar_url']}}">&nbsp;<a href="{{result.contributors[obj]['html_url']}}">{{result.contributors[obj]['login']}} ({{result.contributors[obj]['contributions']}})</a></li>
+	</ol>
+</div>

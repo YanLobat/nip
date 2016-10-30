@@ -7,9 +7,10 @@ import { AppRoutingModule } from './app-routing.module';
 
 
 import { AppComponent }         from './app.component';
-import { ResultComponent }   from './result.component';
-import { SearchComponent }      from './search.component';
-import { GithubService }      from './github.service';
+import { ResultComponent }   from './result/result.component';
+import { SearchComponent }      from './search/search.component';
+import { FilterComponent }      from './filter/filter.component';
+import { GithubService }      from './github/github.service';
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import { GithubService }      from './github.service';
   declarations: [
     AppComponent,
     ResultComponent,
-    SearchComponent
+    SearchComponent,
+    FilterComponent
   ],
   providers: [ GithubService ],
   bootstrap: [ AppComponent ]

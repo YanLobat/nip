@@ -1,8 +1,8 @@
 import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { SearchComponent }      from './search.component';
-import { ResultComponent }  from './result.component';
+import { SearchComponent }      from './search/search.component';
+import { ResultComponent }  from './result/result.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/search', pathMatch: 'full' },

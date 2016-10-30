@@ -2,21 +2,18 @@
 import { AppComponent } from './app.component';
 
 import { TestBed }      from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { By }           from '@angular/platform-browser';
 
 ////////  SPECS  /////////////
 
-/// Delete this
-describe('Smoke test', () => {
-  it('should run a passing test', () => {
-    expect(true).toEqual(true, 'should pass');
-  });
-});
-
-describe('AppComponent with TCB', function () {
+describe('AppComponent', function () {
   beforeEach(() => {
-    TestBed.configureTestingModule({declarations: [AppComponent]});
+    TestBed.configureTestingModule({
+      declarations: [AppComponent],
+      imports: [ RouterTestingModule ]
+    });
   });
 
   it('should instantiate component', () => {
@@ -32,6 +29,6 @@ describe('AppComponent with TCB', function () {
 
         h1 = fixture.debugElement.query(By.css('h1')).nativeElement;            // preferred
 
-    expect(h1.innerText).toMatch(/angular app/i, '<h1> should say something about "Angular App"');
+        expect(h1.innerText).toMatch('NIP. Human Brain Project test task');
   });
 });
