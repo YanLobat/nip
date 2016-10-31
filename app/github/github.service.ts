@@ -5,7 +5,7 @@ import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class GithubService {
-  private token: string = 'c68899b323e87c6ed920a13667eec1b54b08d871';
+  private token: string = 'YOUR_TOKEN_HERE';
   private headers: Headers = new Headers({'Content-Type': 'application/json'});
   private gitUrl: string = 'https://api.github.com/';  // URL to web api
   private getUrl: string;
